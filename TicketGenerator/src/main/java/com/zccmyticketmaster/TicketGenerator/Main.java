@@ -25,7 +25,7 @@ public class Main {
             pb.inheritIO();
             Process p=pb.start();
             p.waitFor();
-            System.out.println("Successfully created batch jobs, start importing...");
+            System.out.println("Successfully imported tickets");
         } catch (Exception e) {
             e.printStackTrace();
         }
