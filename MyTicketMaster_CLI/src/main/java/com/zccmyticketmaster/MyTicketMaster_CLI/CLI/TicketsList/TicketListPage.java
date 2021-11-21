@@ -1,8 +1,6 @@
 package com.zccmyticketmaster.MyTicketMaster_CLI.CLI.TicketsList;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Queue;
 import java.util.Scanner;
 
 import com.zccmyticketmaster.MyTicketMaster_CLI.Util.Util;

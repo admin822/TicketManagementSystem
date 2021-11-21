@@ -2,10 +2,10 @@ package com.zccmyticketmaster.MyTicketMaster_CLI.CLI;
 
 import java.util.Scanner;
 
+import com.zccmyticketmaster.MyTicketMaster_CLI.CLI.GetOneTicket.OneTicketPage;
 import com.zccmyticketmaster.MyTicketMaster_CLI.CLI.TicketsList.TicketListPage;
 
 public class Index {
-	int preferredViewNumber=10;
 	public void start() {
 		System.out.println("=======================Welcome to My Ticket Master=========================");
 		System.out.println("\n\n");
@@ -39,6 +39,10 @@ public class Index {
 			// USER VIEW ALL TICKETS
 			if(currentOption==1) {
 				new TicketListPage().start(scanner);
+			}
+			// USER VIEW ONE TICKET SPECIFIED BY ID
+			if(currentOption==2) {
+				new OneTicketPage().start(scanner);
 			}
 	}
 }

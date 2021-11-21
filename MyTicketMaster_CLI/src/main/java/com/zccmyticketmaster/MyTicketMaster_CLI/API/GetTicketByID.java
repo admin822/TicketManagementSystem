@@ -14,7 +14,7 @@ import com.google.gson.JsonParser;
 import com.zccmyticketmaster.MyTicketMaster_CLI.Util.Util;
 
 public class GetTicketByID {
-	public static String getTicketByID(String ticketID) {
+	public static String getTicketByID(int ticketID) {
 		try {
 			Map<String, String> logins=Util.getLoginProperties();
 			String getString="curl https://"+logins.get("subdomain")+".zendesk.com/api/v2/requests/"+ticketID+".json" + 
@@ -28,7 +28,6 @@ public class GetTicketByID {
 				        .lines()
 				        .collect(Collectors.joining("\n"));
 			p.waitFor();
-			
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			JsonElement je = JsonParser.parseString(response);
 			return gson.toJson(je);

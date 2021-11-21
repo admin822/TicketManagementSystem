@@ -10,8 +10,8 @@
 * schannel: SSL/TLS connection with zccmyticketmaster.zendesk.com port 443 (step 2/3)
 * schannel: failed to receive handshake, need more data
 * schannel: SSL/TLS connection with zccmyticketmaster.zendesk.com port 443 (step 2/3)
-* schannel: encrypted data got 2819
-* schannel: encrypted data buffer: offset 2819 length 4096
+* schannel: encrypted data got 2820
+* schannel: encrypted data buffer: offset 2820 length 4096
 * schannel: sending next handshake data: sending 93 bytes...
 * schannel: SSL/TLS connection with zccmyticketmaster.zendesk.com port 443 (step 2/3)
 * schannel: encrypted data got 258
@@ -20,7 +20,7 @@
 * schannel: SSL/TLS connection with zccmyticketmaster.zendesk.com port 443 (step 3/3)
 * schannel: stored credential handle in session cache
 * Server auth using Basic with user 'mengze_zhang@brown.edu/token'
-> GET /api/v2/requests.json?page=2 HTTP/1.1
+> GET /api/v2/requests/20.json HTTP/1.1
 > Host: zccmyticketmaster.zendesk.com
 > Authorization: Basic bWVuZ3plX3poYW5nQGJyb3duLmVkdS90b2tlbjpwc2pPWHZhZkd5NmJ3QmpGUnpkNUJJNVozNTd2V0gxRTcwbkVFSHpt
 > User-Agent: curl/7.55.1
@@ -40,7 +40,7 @@
 * schannel: decrypted data returned 1369
 * schannel: decrypted data buffer: offset 0 length 102400
 < HTTP/1.1 200 OK
-< Date: Sun, 21 Nov 2021 06:31:31 GMT
+< Date: Sun, 21 Nov 2021 18:05:32 GMT
 < Content-Type: application/json; charset=UTF-8
 < Transfer-Encoding: chunked
 < Connection: keep-alive
@@ -48,42 +48,42 @@
 < X-Zendesk-Application-Version: v10423
 < X-Frame-Options: SAMEORIGIN
 < X-Rate-Limit: 400
-< X-Rate-Limit-Remaining: 398
+< X-Rate-Limit-Remaining: 399
 < Strict-Transport-Security: max-age=31536000;
-< ETag: W/"f14fb8c718ebdfc245aae6aa14be830c"
+< ETag: W/"2d43f3febf1ae960fd25e0cabb7c4118"
 < Cache-Control: max-age=0, private, must-revalidate
-< X-Zendesk-Origin-Server: classic-app-server-8555ffb8b-cq5vh
-< X-Request-Id: 6b17e02549fd5cdc-SEA
-< X-Runtime: 0.243517
+< X-Zendesk-Origin-Server: classic-app-server-8555ffb8b-dtbqc
+< X-Request-Id: 6b1bd8c338355afe-SEA
+< X-Runtime: 0.240534
 < X-Zendesk-Zorg: yes
-< X-Request-ID: 6b17e02549fd5cdc-SEA
+< X-Request-ID: 6b1bd8c338355afe-SEA
 < X-Content-Type-Options: nosniff
 < CF-Cache-Status: DYNAMIC
 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-< Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=j5iRECER6MJ0kogI57Zfn6917Hb3lIVXre5P%2FG%2FDQg9gCURUBbCQyWdSpzUGVzLUvFP0LQG3LDr3N6PKa00pydLflrjOBhbdVfzmovLjx0c29aJIPNU%2FySR4C309Ybl20lnsx80Q6VRP4uHwRTLd"}],"group":"cf-nel","max_age":604800}
+< Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=vS6QCCdZ8vQ56SODvbWhbXMePZlOWg%2FbiCDHsKjGm%2FyE8yQ7V4N8bK71lPlZSCi931Ca5T4b8%2Fel72kBtYMIaVAgDZvYj1WdI7021%2FbFO%2Fh68%2FDZUaigzkumVwG9N4QZVpNOnQ0UxwTBV4Im%2FrMv"}],"group":"cf-nel","max_age":604800}
 < NEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}
-< Set-Cookie: __cfruid=e9048906a981f3bf93bbc4652899b45a8115b551-1637476291; path=/; domain=.zccmyticketmaster.zendesk.com; HttpOnly; Secure; SameSite=None
+< Set-Cookie: __cfruid=0e9835f9373aa0c5f664a452d55bfb0377addfb1-1637517932; path=/; domain=.zccmyticketmaster.zendesk.com; HttpOnly; Secure; SameSite=None
 < Server: cloudflare
-< CF-RAY: 6b17e02549fd5cdc-IAD
+< CF-RAY: 6b1bd8c338355afe-IAD
 < 
-{ [49 bytes data]
-* schannel: client wants to read 102400 bytes
+{ [41 bytes data]
+100    36    0    36    0     0     36      0 --:--:-- --:--:-- --:--:--    69* schannel: client wants to read 102400 bytes
 * schannel: encrypted data buffer: offset 0 length 103424
-* schannel: encrypted data got 1196
-* schannel: encrypted data buffer: offset 1196 length 103424
-* schannel: decrypted data length: 1133
-* schannel: decrypted data added: 1133
-* schannel: decrypted data cached: offset 1133 length 102400
+* schannel: encrypted data got 1332
+* schannel: encrypted data buffer: offset 1332 length 103424
+* schannel: decrypted data length: 1269
+* schannel: decrypted data added: 1269
+* schannel: decrypted data cached: offset 1269 length 102400
 * schannel: encrypted data length: 34
 * schannel: encrypted data cached: offset 34 length 103424
 * schannel: decrypted data length: 5
 * schannel: decrypted data added: 5
-* schannel: decrypted data cached: offset 1138 length 102400
+* schannel: decrypted data cached: offset 1274 length 102400
 * schannel: encrypted data buffer: offset 0 length 103424
-* schannel: decrypted data buffer: offset 1138 length 102400
+* schannel: decrypted data buffer: offset 1274 length 102400
 * schannel: schannel_recv cleanup
-* schannel: decrypted data returned 1138
+* schannel: decrypted data returned 1274
 * schannel: decrypted data buffer: offset 0 length 102400
-{ [1138 bytes data]
-100  1175    0  1175    0     0   1175      0 --:--:-- --:--:-- --:--:--  2032
+{ [1274 bytes data]
+100  1303    0  1303    0     0   1303      0 --:--:-- --:--:-- --:--:--  2530
 * Connection #0 to host zccmyticketmaster.zendesk.com left intact
