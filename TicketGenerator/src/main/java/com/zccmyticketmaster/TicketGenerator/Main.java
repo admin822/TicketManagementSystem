@@ -20,11 +20,14 @@ public class Main {
             String postString="curl https://"+subdomain+".zendesk.com/api/v2/imports/tickets/create_many.json -v -u " + 
             		email+":"+password+" -X POST -d @tickets.json -H \"Content-Type:application/json\"";
             System.out.println("This is the CURL command:\n"+postString);
-            Process process = Runtime.getRuntime().exec(postString);
-            process.destroy();
+            ProcessBuilder pb=new ProcessBuilder(postString.split(" "));
+            pb.directory(new File(System.getProperty("user.dir"))); // run from current directory
+            pb.inheritIO();
+            Process p=pb.start();
+            p.waitFor();
             System.out.println("Successfully created batch jobs, start importing...");
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 		
 	}
