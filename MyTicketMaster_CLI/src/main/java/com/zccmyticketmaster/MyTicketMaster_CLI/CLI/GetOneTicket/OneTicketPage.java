@@ -40,6 +40,7 @@ public class OneTicketPage {
 						System.out.println("Press 1 to go back to the main page");
 					}
 				}
+				Util.clearConsole();
 				break;
 			}
 		} catch (Exception e) {

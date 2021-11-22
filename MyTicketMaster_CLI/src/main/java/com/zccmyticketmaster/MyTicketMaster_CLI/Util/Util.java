@@ -1,5 +1,6 @@
 package com.zccmyticketmaster.MyTicketMaster_CLI.Util;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +10,7 @@ import java.util.Properties;
 public class Util {
 	public static Map<String, String> getLoginProperties() throws Exception{
 		Map<String, String> logins=new HashMap<>();
-		InputStream input=Util.class.getResourceAsStream("/Config/login.properties");
+		InputStream input=new FileInputStream("login.propertiess");
 		Properties props=new Properties();
 		props.load(input);
 		String email=props.getProperty("login.email");

@@ -28,7 +28,7 @@ public class GetAllTickets {
 	}
 	private static JsonObject sendRequest(String getString) throws Exception {
 		ProcessBuilder pb = new ProcessBuilder(getString.split(" "));
-		File requestLogs=new File("request_logs.log");
+		File requestLogs=new File("/logs/request_logs.log");
 		pb.redirectError(requestLogs);
 		Process p = pb.start();
 		String response = new BufferedReader(

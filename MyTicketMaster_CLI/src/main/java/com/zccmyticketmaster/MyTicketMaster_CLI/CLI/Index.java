@@ -42,12 +42,10 @@ public class Index {
 				// USER VIEW ALL TICKETS
 				if(currentOption==1) {
 					new TicketListPage().start(scanner);
-					Util.clearConsole();
 				}
 				// USER VIEW ONE TICKET SPECIFIED BY ID
 				if(currentOption==2) {
 					new OneTicketPage().start(scanner);
-					Util.clearConsole();
 				}
 		}
 		} catch (Exception e) {

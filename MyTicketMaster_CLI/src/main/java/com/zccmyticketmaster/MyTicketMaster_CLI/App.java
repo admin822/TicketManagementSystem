@@ -15,7 +15,7 @@ public class App
     {	
     	try {
     		LoggerContext context = (LoggerContext) LogManager.getContext(false);
-        	File file=new File(App.class.getClassLoader().getResource("Config/log4j2.xml").getPath());
+        	File file=new File("log4j2.xml");
         	context.setConfigLocation(file.toURI());
             new Index().start();
 		} catch (Exception e) {

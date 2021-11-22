@@ -23,7 +23,7 @@ public class GetTicketByID {
 			String getString="curl https://"+logins.get("subdomain")+".zendesk.com/api/v2/requests/"+ticketID+".json" + 
 					" -v -u "+logins.get("email")+"/token:"+logins.get("token");
 			ProcessBuilder pb = new ProcessBuilder(getString.split(" "));
-			File requestLogs=new File("request_logs.log");
+			File requestLogs=new File("/logs/request_logs.log");
 			pb.redirectError(requestLogs);
 			Process p = pb.start();
 			String response = new BufferedReader(
