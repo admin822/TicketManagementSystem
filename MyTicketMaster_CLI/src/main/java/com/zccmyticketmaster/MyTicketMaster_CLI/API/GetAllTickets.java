@@ -6,13 +6,10 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.zccmyticketmaster.MyTicketMaster_CLI.App;
 import com.zccmyticketmaster.MyTicketMaster_CLI.Util.Util;
 
 
@@ -31,8 +28,8 @@ public class GetAllTickets {
 	}
 	private static JsonObject sendRequest(String getString) throws Exception {
 		ProcessBuilder pb = new ProcessBuilder(getString.split(" "));
-		pb.directory(new File(System.getProperty("user.dir")));
-		pb.redirectError(new File("request_logs.log"));
+		File requestLogs=new File("request_logs.log");
+		pb.redirectError(requestLogs);
 		Process p = pb.start();
 		String response = new BufferedReader(
 			      new InputStreamReader(p.getInputStream(), StandardCharsets.UTF_8))
@@ -44,20 +41,10 @@ public class GetAllTickets {
 		p.destroy();
 		return jObject;
 	}
-	public static JsonObject getInitialResponse() {
-		try {
-			return sendRequest(buildListTicktetsUrl());
-		}catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+	public static JsonObject getInitialResponse() throws Exception {
+		return sendRequest(buildListTicktetsUrl());
 	}
-	public static JsonObject getSubsequentResponse(String nextPageUrl) {
-		try {
-			return sendRequest(buildSubsequentRequestUrl(nextPageUrl));
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+	public static JsonObject getSubsequentResponse(String nextPageUrl) throws Exception {
+		return sendRequest(buildSubsequentRequestUrl(nextPageUrl));
 	}
 }
