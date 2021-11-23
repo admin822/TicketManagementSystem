@@ -10,6 +10,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.zccmyticketmaster.MyTicketMaster_CLI.App;
+import com.zccmyticketmaster.MyTicketMaster_CLI.Exceptions.IncorrectLoginsException;
 import com.zccmyticketmaster.MyTicketMaster_CLI.Util.Util;
 
 
@@ -28,7 +29,7 @@ public class GetAllTickets {
 	}
 	private static JsonObject sendRequest(String getString) throws Exception {
 		ProcessBuilder pb = new ProcessBuilder(getString.split(" "));
-		File requestLogs=new File("/logs/request_logs.log");
+		File requestLogs=new File("logs/request_logs.log");
 		pb.redirectError(requestLogs);
 		Process p = pb.start();
 		String response = new BufferedReader(
@@ -36,9 +37,13 @@ public class GetAllTickets {
 			        .lines()
 			        .collect(Collectors.joining("\n"));
 		p.waitFor();
+		p.destroy();
 		JsonElement je = JsonParser.parseString(response);
 		JsonObject jObject=je.getAsJsonObject();
-		p.destroy();
+		if(jObject.get("error")!=null) {
+			throw new IncorrectLoginsException(); // made it here means request sent/response received,
+			// there is something wrong with the logins
+		}
 		return jObject;
 	}
 	public static JsonObject getInitialResponse() throws Exception {

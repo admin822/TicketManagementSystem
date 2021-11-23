@@ -12,6 +12,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.zccmyticketmaster.MyTicketMaster_CLI.App;
 import com.zccmyticketmaster.MyTicketMaster_CLI.API.GetAllTickets;
+import com.zccmyticketmaster.MyTicketMaster_CLI.Exceptions.IncorrectLoginsException;
+import com.zccmyticketmaster.MyTicketMaster_CLI.Exceptions.PropertyFileNotFoundException;
 
 public class TicketsHandler {
 	private String nextPage;
@@ -43,7 +45,17 @@ public class TicketsHandler {
 				}
 			}
 			isEmpty=false;
-		} catch (Exception e) {
+		} catch (PropertyFileNotFoundException pne) {
+			System.out.println("[ERROR]: The property file cannot be found, please make sure login.properties is at the root directory before launching");
+			App.logger.error("Error at creating tickets handler",pne);
+			this.isEmpty=true;
+		}
+		catch (IncorrectLoginsException ile) {
+			System.out.println("[ERROR]: Failed to load all tickets, please check your logins are correct");
+			App.logger.error("Error at creating tickets handler",ile);
+			this.isEmpty=true;
+		}
+		catch (Exception e) {
 			System.out.println("[ERROR]: Failed to load all tickets, please refer to error.log for more details. Sorry for the inconvenience.");
 			App.logger.error("Error at creating tickets handler",e);
 			this.isEmpty=true;
@@ -92,7 +104,17 @@ public class TicketsHandler {
 				counter++;
 			}
 			return pageData;
-		} catch (Exception e) {
+		} catch (PropertyFileNotFoundException pne) {
+			System.out.println("[ERROR]: The property file cannot be found, please make sure login.properties is at the root directory before launching");
+			App.logger.error("Error at loading page",pne);
+			return null;
+		}
+		catch (IncorrectLoginsException ile) {
+			System.out.println("[ERROR]: Failed to load all tickets, please check your logins are correct");
+			App.logger.error("Error at loading page",ile);
+			return null;
+		}
+		catch (Exception e) {
 			System.out.println("[ERROR]: Failed to load page content, please refer to error.log for more details. Sorry for the inconvenience.");
 			App.logger.error("Error at loading page",e);
 			return null;

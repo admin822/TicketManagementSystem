@@ -8,6 +8,7 @@
 2. change the information in ```myLogin.properties``` to your own information
 3. Run ```main.java```
 
+### 2. MyTicketMaster_CLI
 
 
 ## Terminology
