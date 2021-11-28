@@ -12,9 +12,10 @@
 > Current build(0.0.2) has been tested on Windows 10 and CentOS Linux 8
 
 #### How to use:
-   - Download ```MyTicketMaster_CLI.rar```
+   > make sure you have jre 1.8 installed on your machine
+   - Download ```MyTicketMaster_CLI.rar```, then extract it.
    - Change information in ```login.properties``` to your logins. **IMPORTANT:** DO NOT move this file to other place, the App will complain.
-   - Enter the root directory, run ```java -jar MyTicketMaster_CLI-0.0.2.jar```
+   - Run ```java -jar MyTicketMaster_CLI-0.0.2.jar```
 
 ##### For more technical users:
 Under the *logs* directory, there will be a few    *.log* files:  
