@@ -22,6 +22,7 @@ import com.zccmyticketmaster.MyTicketMaster_CLI.Util.Util;
 public class GetTicketByIDTest {
 	protected String requestWithValidID;
 	// NO NEED TO TEST PROPERTY FILE NOT FOUND SCENARIO, UtilTest COVERS IT
+	// MANUALLY TEST PROPERTY EXISTS BUT INVALID SCENARIOS
 	@Before
 	public void setUp() throws Exception {
 		Map<String, String> logins=Util.getLoginProperties();
@@ -47,8 +48,10 @@ public class GetTicketByIDTest {
 		assertEquals(jString, GetTicketByID.getTicketByID(2));
 	}
 	@Test
+	// THIS COVERS A BRANCH OF THE CODE, BUT NOT REALLY NECESSARY SINCE IN REAL-WORLD NEXT PAGE IS PARSED NOT INPUT BY USER
+	// THIS WILL PRINT THE ERROR OUTPUT TO STDIO, SINCE APP'S LOGGER IS NOT SET UP YET
 	public void testgetTicketByIDWithInvalidID() {
-		String standardErrorVerbose="[Ticket Detail Page]: Ticket is not found, please make your logins and ticket ID are valid";
+		String standardErrorVerbose="[Ticket Detail Page]: Ticket is not found, please make sure your logins and ticket ID are valid";
 		assertEquals(standardErrorVerbose, GetTicketByID.getTicketByID(Integer.MAX_VALUE));
 		assertEquals(standardErrorVerbose, GetTicketByID.getTicketByID(-1));
 		assertEquals(standardErrorVerbose, GetTicketByID.getTicketByID(0));

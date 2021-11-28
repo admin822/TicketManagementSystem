@@ -11,7 +11,6 @@ public class TicketListPage {
 		String currentInput;
 		int currentOption;
 		try {
-			Util.clearConsole();
 			System.out.println("[Ticket List View Page]: Requesting for all the tickets, this should just take a second...");
 			TicketsHandler ticketsHandler=new TicketsHandler();
 			if(ticketsHandler.isEmpty()) {
@@ -22,7 +21,6 @@ public class TicketListPage {
 			List<String> pageData=null;
 			while(true) {
 				if(getNewPage) {
-					Util.clearConsole();
 					pageData=ticketsHandler.getAPage();
 				}
 				if(pageData==null) {
@@ -70,7 +68,6 @@ public class TicketListPage {
 						}
 					}
 					String detail=ticketsHandler.detailTicket(currentOption);
-					Util.clearConsole();
 					if(detail==null) {
 						System.out.println("[Ticket List View Page]: There is no information about this ticket");
 					}
@@ -84,7 +81,6 @@ public class TicketListPage {
 							currentOption=Integer.parseInt(currentInput);
 							if(currentOption==1) {
 								getNewPage=false;
-								Util.clearConsole();
 								break;
 							}
 							System.out.println("Press 1 to go back to the previous page");
@@ -94,7 +90,6 @@ public class TicketListPage {
 					}
 				}
 				if(currentOption==3) {
-					Util.clearConsole();
 					break;
 				}
 			}

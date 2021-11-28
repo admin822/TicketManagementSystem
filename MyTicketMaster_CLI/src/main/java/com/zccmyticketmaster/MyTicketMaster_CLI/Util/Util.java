@@ -31,8 +31,5 @@ public class Util {
 			throw e;
 		}
 	}
-	public static void clearConsole() throws Exception {
-		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-	}
 	
 }

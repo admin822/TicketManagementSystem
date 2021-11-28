@@ -51,7 +51,7 @@ public class TicketsHandler {
 			this.isEmpty=true;
 		}
 		catch (IncorrectLoginsException ile) {
-			System.out.println("[ERROR]: Failed to load all tickets, please check your logins are correct");
+			System.out.println("[ERROR]: Failed to load all tickets, please make sure your logins are correct");
 			App.logger.error("Error at creating tickets handler",ile);
 			this.isEmpty=true;
 		}
@@ -62,6 +62,7 @@ public class TicketsHandler {
 		}
 	}
 	private void makeSubsequentRequest() throws Exception{
+		System.out.println("Requesting another page of data, just will just take a few seconds...");
 		JsonObject response=GetAllTickets.getSubsequentResponse(nextPage);
 		JsonElement allTicketsJson=response.get("requests");
 		JsonElement nextPageJson=response.get("next_page");
@@ -110,7 +111,7 @@ public class TicketsHandler {
 			return null;
 		}
 		catch (IncorrectLoginsException ile) {
-			System.out.println("[ERROR]: Failed to load all tickets, please check your logins are correct");
+			System.out.println("[ERROR]: Failed to load all tickets, please make sure your logins are correct");
 			App.logger.error("Error at loading page",ile);
 			return null;
 		}

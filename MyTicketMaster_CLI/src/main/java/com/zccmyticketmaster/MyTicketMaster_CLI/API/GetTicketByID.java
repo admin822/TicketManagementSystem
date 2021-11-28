@@ -1,6 +1,5 @@
 package com.zccmyticketmaster.MyTicketMaster_CLI.API;
 
-import static org.hamcrest.CoreMatchers.nullValue;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,6 +14,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.zccmyticketmaster.MyTicketMaster_CLI.App;
+import com.zccmyticketmaster.MyTicketMaster_CLI.Exceptions.IncorrectLoginsException;
 import com.zccmyticketmaster.MyTicketMaster_CLI.Exceptions.PropertyFileNotFoundException;
 import com.zccmyticketmaster.MyTicketMaster_CLI.Util.Util;
 
@@ -38,7 +38,8 @@ public class GetTicketByID {
 			JsonObject jo=je.getAsJsonObject();
 			if(jo.get("error")!=null) { // reached here means the request is sent and response is received, but something wrong
 				// with the logins or the provided ticket id
-				return "[Ticket Detail Page]: Ticket is not found, please make your logins and ticket ID are valid";
+				App.logger.error("Error when trying to get ticket: "+ticketID,new IncorrectLoginsException());
+				return "[Ticket Detail Page]: Ticket is not found, please make sure your logins and ticket ID are valid";
 			}
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			return gson.toJson(je);

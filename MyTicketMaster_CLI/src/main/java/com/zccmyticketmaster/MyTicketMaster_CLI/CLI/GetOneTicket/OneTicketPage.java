@@ -12,7 +12,6 @@ public class OneTicketPage {
 		int currentOption;
 		try {
 			while(true) {
-				Util.clearConsole();
 				System.out.println("[Ticket Detail Page]: Please enter the id of the ticket: ");
 				while(true) {
 					currentInput=scanner.nextLine();
@@ -40,7 +39,6 @@ public class OneTicketPage {
 						System.out.println("Press 1 to go back to the main page");
 					}
 				}
-				Util.clearConsole();
 				break;
 			}
 		} catch (Exception e) {
